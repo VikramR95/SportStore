@@ -1,0 +1,128 @@
+﻿@page
+@model CartModel
+
+<h2 class="fontfamilly">Your cart</h2>
+<table>
+    @*<thead>
+            <tr>
+                <th>Quantity</th>
+
+                <th>Item</th>
+                <th class="text-right">Price</th>
+                <th class="text-right">Subtotal</th>
+
+            </tr>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>*@
+    <tbody>
+        @foreach (var line in Model.Cart.Lines)
+            {
+                
+
+
+            <tr>
+                <td class="text-left">
+                    @*<h3>@line.Product.Name</h3>
+                    <img src="@Url.Content($"~/images/{@line.Product.Image}")" />*@
+
+                    <div class="two-thirds">
+                        <nav>
+                            <h1 class="current"><b>@line.Product.Name</b></h1>
+                        </nav>
+                        <section id="content">
+                            <div id="container">
+                                
+                                <img src="@Url.Content($"~/images/{@line.Product.Image}")" />
+                            </div>
+                        </section>
+                    </div>
+
+                </td>
+                <td valign="top">
+
+                    <div class="two-thirds" >
+                        <nav>
+                            <p class="current">Description</p>
+
+                        </nav>
+                        <section id="content">
+                            <div id="container">
+                                <p>@line.Product.ProductDetails</p>
+                                
+                            </div>
+                        </section>
+                    </div>
+
+
+                </td>
+                <td valign="top">
+                    <div class="two-thirds">
+                        <nav>
+                            <p class="current">Total</p>
+
+                        </nav>
+                        <section id="content">
+                            <div id="container">
+                                <p>Price : @line.Product.Price</p>
+                                <p>Quantity : @line.Quantity</p><br /><br />
+                                <p class="greenword"><b>Livraison gratuite</b></p>
+                                <p class="greenword"><b>Retrait en Click&Collect</b></p>
+                                <p class="greenword"><b>Retour gratuit sur 30 jours</b></p>
+                            </div>
+                        </section>
+                    </div>
+
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="2" align="right">
+                    <form asp-page-handler="Remove" method="post">
+                        <input type="hidden" name="ProductID"
+                               value="@line.Product.ProductID" />
+                        <input type="hidden" name="returnUrl"
+                               value="@Model.ReturnUrl" />
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            Remove
+                        </button>
+                    </form>
+                </td>
+            </tr>
+         
+        
+        }
+
+    </tbody>
+    <tfoot>
+        <tr>
+            @*<td colspan="3" class="text-right">Total:</td>
+        <td class="text-right">
+            @Model.Cart.ComputeTotalValue().ToString("c")
+        </td>*@
+            <td colspan="5" valign="top" align="right">
+                <div class="two-thirds">
+                    <nav>
+                        <p class="current"><u>Cart Amount</u></p>
+
+                    </nav>
+                    <section id="content">
+                        <div id="container">
+                            <p><b>Price : @Model.Cart.ComputeTotalValue().ToString("c")</b></p>
+                        </div>
+                    </section>
+                </div>
+
+            </td>
+        </tr>
+
+    </tfoot>
+</table>
+
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
+    <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">
+        Checkout
+    </a>
+</div>

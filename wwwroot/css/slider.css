@@ -1,0 +1,124 @@
+﻿/********** SLIDER **********/
+.slider {
+    max-width: 200%;
+    margin: -15px 100px 0px 100px;
+    text-align: center;
+}
+
+.slide-viewer {
+    position: relative; /* needed for IE7 */
+    overflow: hidden;
+    height: 450px;
+    margin: 0px 0px 0px 0px;
+}
+
+.slide-group {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: 0px 0px 0px 0px;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+}
+
+    .slide:first-child {
+        display: block;
+    }
+
+
+/********** BUTTONS **********/
+.slide-buttons {
+    text-align: center;
+}
+
+.slide-btn {
+    border: none;
+    background: none;
+    color: #000;
+    font-size: 200%;
+    line-height: 0.5em;
+}
+
+    .slide-btn.active, .slide-btn:hover {
+        color: #ed8e6c;
+        cursor: pointer;
+    }
+
+h2 {
+    margin: 50px 0px 20px 0px;
+    padding: 0;
+    text-align: center;
+    position: relative;
+}
+
+    h2 span {
+        background-color: #fff;
+        /*padding:10px 10px 10px 10px;*/
+        margin: 0px 0px 0px 0px;
+    }
+
+.un {
+    line-height: 2px;
+    box-shadow: 0 16px 0 0 black inset, 0 17px 0 0 black inset;
+}
+
+h4 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: relative;
+}
+
+    h4 span {
+        background-color: #fff;
+        /*padding:10px 10px 10px 10px;*/
+        margin: 0px 0px 15px 0px;
+    }
+
+.deux {
+    line-height: 1px;
+    box-shadow: 0 16px 20px 0 grey inset, 0 17px 0 0 black inset;
+}
+
+
+.alignproduct{
+    margin: 0px 0px 0px 80px;
+}
+
+.endfooter{
+    background-color: black;
+    
+}
+.cartview{
+    font-size:1rem;
+}
+
+.productinfo{
+    margin: 10px 0px 0px 0px;
+    /*Use in productInfo.cshml*/
+}
+.fontfamilly {
+    font-family: oswald;
+    /*Use in Cart.cshtml*/
+}
+#footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+}
+
+    #footer p {
+        padding: 10px;
+        margin: 0;
+    }
+
+.getbackgroundcolorservices{
+    background-color:#d7d7d7
+}

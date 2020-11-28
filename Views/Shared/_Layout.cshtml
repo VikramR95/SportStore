@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Loreal Store</title>
+    @*<environment include="Development,Local">
+            <link rel="stylesheet" href="~/lib/bootstrap4/css/bootstrap.css" />
+            <link rel="stylesheet" href="~/lib/fontawesome/css/font-awesome.css" />
+        </environment>*@
+    @*<environment exclude="Development,Local">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+                  crossorigin="anonymous"
+                  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+            <link rel="stylesheet" href="~/lib/fontawesome/css/font-awesome.min.css" />
+        </environment>*@
+    <link rel="stylesheet" href="~/lib/bootstrap4/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/lib/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/slider.css" />
+    <link rel="stylesheet" href="~/css/tabs.css" />
+    <link rel="stylesheet" href="~/css/c09.css" />
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    
+    <div class="bg-dark text-white p-2">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col navbar-brand"></div>
+                <div class="col-6 text-right">
+                    <vc:cart-summary />
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-dark text-white p-2">
+        <span class="navbar-brand ml-2"><img src="~/images/logoloreal.png" /></span>
+    </div>
+    <div class="row">
+        <div id="categories">
+            <vc:navigation-menu />
+        </div>
+    </div>
+
+
+    @*<div class="col-9">*@
+    <div class="card-body">
+        @RenderBody()
+    </div>
+    @*</div>*@
+
+    <div class="endfooter">
+        <footer class="border-top text-muted">
+            <hr />
+            <div class="container">
+                &copy; 2020 L'OREAL PARIS <br />
+
+                <email email-name="blog" email-domain=""></email>
+            </div>
+        </footer>
+    </div>
+    @*<environment include="Development,Local">
+            <script src="~/lib/jquery/jquery.js" asp-append-version="true"></script>
+            <script src="~/lib/bootstrap4/js/bootstrap.bundle.js"></script>
+        </environment>*@
+    @*<environment exclude="Development,Local">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+            </script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+            </script>
+        </environment>*@
+    <script src="~/lib/jquery/jquery.js" asp-append-version="true"></script>
+    <script src="~/lib/bootstrap4/js/bootstrap.bundle.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+    <script src="~/js/jquery-1.11.0.min.js"></script>
+    <script src="~/js/slider.js"></script>
+    <script src="~/js/tabs.js"></script>
+    <script src="~/js/history.js"></script>
+    <script src="js/dateobject.js"></script>
+</body>
+</html>

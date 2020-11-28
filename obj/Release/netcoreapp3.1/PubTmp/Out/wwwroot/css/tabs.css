@@ -1,0 +1,57 @@
+﻿/********** TABS **********/
+.tab-list {
+    margin: 0;
+    padding: 0;
+    font-size: 1px;
+}
+
+    .tab-list li {
+        display: inline-block;
+        list-style-type: none;
+        background-color: #f7f6f7;
+        border-bottom: 3px solid white;
+        font-family: 'Jacques Francois', serif;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+       
+    }
+
+        .tab-list li a {
+            color: black;
+            display: block;
+            padding: 3px 10px 3px 10px;
+            font-size: 1px;
+        }
+
+
+        /********** HOVER STATES **********/
+        .tab-list li.active, .tab-list li.hover {
+            background-color: black;
+            border-bottom: 3px solid black;
+        }
+
+            .tab-list li.active a, .tab-list li a:hover {
+                color: black;
+                background-color: white;
+            }
+
+
+/********** PANELS **********/
+.tab-panel {
+    display: none;
+    background-color: white;
+    color: #666;
+    min-height: 50px;
+    overflow: auto;
+}
+
+    .tab-panel.active {
+        display: block;
+    }
+
+    .tab-panel p {
+        margin: 20px;
+    }
+.tab-control{
+    font-size:15px;
+}

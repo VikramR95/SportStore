@@ -1,0 +1,271 @@
+﻿@page
+@model ProductInfoModel
+
+@*<tr>
+    <td colspan="3" align="left">
+        <img class="imagelignleft" src="~/images/Bandeau_Avent_Calendar_Desktop_1680x300.jpg" width="1200" height="200" />
+
+    </td>
+</tr>*@
+
+<table>
+
+
+    @foreach (var line in Model.ProductInfo.Line)
+    {
+       
+        <tr>
+            <td>
+                @if (line.Product.Category == "MAQUILLAGE")
+                {
+                    <table>
+                        <tr>
+                            <td>
+                                <img class="imagelignleft" src="~/images/2825022.webp" width="1200" height="500" />
+
+                            </td>
+                        </tr>
+                    </table>
+                }
+                else if(line.Product.Category == "SOIN DE LA PEAU")
+                {
+                      <table>
+                          <tr>
+                              <td>
+                                  <img class="imagelignleft" src="~/images/Bandeau_Avent_Calendar_Desktop_1680x300.jpg" width="1200" height="200" />
+
+                              </td>
+                          </tr>
+                      </table>
+                }
+            </td>
+        </tr>
+        
+
+            <h2>@line.Product.Category</h2>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td valign="top">
+                            <nav>
+                                <p href="history.html" class="current"></p>
+                                <p href="history.html" class="current"></p>
+                            </nav>
+                            <section id="content">
+                                <div id="container">
+                                    <p><h4>@line.Product.Name</h4></p>
+                                </div>
+                            </section>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="@Url.Content($"~/images/{@line.Product.Image}")" /></td>
+                        <td valign="top">
+                            <nav>
+                                <p href="history.html" class="current">Prix</p>
+                            </nav>
+                            <section id="content">
+                                <div id="container">
+                                    <p>@line.Product.Price</p>
+                                </div>
+                            </section>
+                        </td>
+                        <td>
+                            <nav>
+                                <p href="history.html" class="current">Services</p>
+                            </nav>
+                            <section id="content">
+                                <div id="container">
+                                    <p class="greenword"><b>Livraison gratuite</b></p>
+                                    <p class="greenword"><b>Retrait en Click&Collect</b></p>
+                                    <p class="greenword"><b>Retour gratuit sur 30 jours</b></p>
+                                </div>
+                            </section>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <nav>
+                    <p href="history.html" class="current">Description</p>
+                </nav>
+                <section id="content">
+                    <div id="container">
+                        <p>@line.Product.ProductDetails</p>
+                    </div>
+                </section>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="text-center">
+                    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
+                    <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">
+                        Checkout
+                    </a>
+                    <br />
+                    <br />
+
+                </div>
+            </td>
+        </tr>
+        @if (@line.Product.Category == "MAQUILLAGE")
+        {
+            
+            <tr>
+                <td>
+                    <h2 class="un"><span>LES SERVICES A TESTER</span></h2><br /><br />
+                    <section>
+                        <div class="slider">
+                            <div class="slide-viewer">
+                                <div class="slide-group">
+                                    <div class="slide slide-1">
+                                        <table width="30%">
+                                            <tr>
+                                                <td>
+                                                    <form id="@line.Product.ProductID" asp-page="/ProductInfo" method="post">
+                                                        <input type="hidden" asp-for="@line.Product.ProductID" />
+                                                        <input type="hidden" name="returnUrl"
+                                                               value="@ViewContext.HttpContext.Request.Path" />
+                                                        <span class="card-text p-1">
+                                                            <button>
+                                                                @line.Product.Name
+                                                                <img src="@Url.Content($"~/images/{@line.Product.Image}")" />
+                                                            </button>
+                                                        </span>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <form id="@line.Product.ProductID" asp-page="/ProductInfo" method="post">
+                                                        <input type="hidden" asp-for="@line.Product.ProductID" />
+                                                        <input type="hidden" name="returnUrl"
+                                                               value="@ViewContext.HttpContext.Request.Path" />
+                                                        <span class="card-text p-1">
+                                                            <button>
+                                                                @line.Product.Name
+                                                                <img src="@Url.Content($"~/images/{@line.Product.Image}")" />
+                                                            </button>
+                                                        </span>
+                                                    </form>
+
+                                                </td>
+                                                <td>
+                                                    <form id="@line.Product.ProductID" asp-page="/ProductInfo" method="post">
+                                                        <input type="hidden" asp-for="@line.Product.ProductID" />
+                                                        <input type="hidden" name="returnUrl"
+                                                               value="@ViewContext.HttpContext.Request.Path" />
+                                                        <span class="card-text p-1">
+                                                            <button>
+                                                                @line.Product.Name
+                                                                <img src="@Url.Content($"~/images/{@line.Product.Image}")" />
+                                                            </button>
+                                                        </span>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <form id="@line.Product.ProductID" asp-page="/ProductInfo" method="post">
+                                                        <input type="hidden" asp-for="@line.Product.ProductID" />
+                                                        <input type="hidden" name="returnUrl"
+                                                               value="@ViewContext.HttpContext.Request.Path" />
+                                                        <span class="card-text p-1">
+                                                            <button>
+                                                                @line.Product.Name
+                                                                <img src="@Url.Content($"~/images/{@line.Product.Image}")" />
+                                                            </button>
+                                                        </span>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div><br /><br />
+                                    <div class="slide slide-2">
+                                        <table width="100%">
+                                            <tr>
+                                                <td><img src="~/images/mon-diagnostic-teint.jpg" /></td>
+                                                <td><img src="~/images/lp-nouveaute-club-lorealista.png" /></td>
+                                                <td><img src="~/images/OAP-Push-Nav-2020_kits_03.jpg" /></td>
+                                                <td><img src="~/images/OAP-Push-Nav_AUTRECOTE_03_03.jpg" /></td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                    @*<div class="slide slide-3">
+                                            <img src="~/images/mon-diagnostic-teint.jpg" />
+                                        </div>
+                                        <div class="slide slide-4">
+                                            <img src="~/images/OAP-Push-Nav-2020_kits_03.jpg" />
+                                        </div>*@
+                                </div>
+                            </div>
+                            <div class="slide-buttons"></div>
+                        </div>
+                    </section>
+                </td>
+            </tr>
+            @*<partial name="sliderproduct" />*@
+            @*<partial name="ideescadeaux" />*@
+            <partial name="newsmaquillage" />
+        }
+        else if (@line.Product.Category == "COLORATION")
+        {
+
+            @if (@line.Product.Name == "Excellence Crème Reflets" || line.Product.Name == "Excellence Crème Brunes")
+            {
+
+
+                <partial name="ideescadeaux" />
+
+            }
+            else
+            {
+                <partial name="newsmaquillage" />
+            }
+        }
+        else if (line.Product.Category == "SOIN DE LA PEAU")
+        {
+            @if (line.Product.Name == "Revitalift Soin Rouge")
+            {
+                <partial name="ideescadeaux" />
+            }
+            else
+            {
+                <partial name="newsmaquillage" />
+            }
+        }
+        else if (line.Product.Category == "HOMME")
+        {
+            <partial name="ideescadeaux" />
+        }
+
+        else if (line.Product.Category == "CHEVEUX")
+        {
+            <partial name="ideescadeaux" />
+        }
+        else
+        {
+            <partial name="ideescadeaux" />
+        }
+
+    }
+
+
+
+    <tfoot>
+
+
+    </tfoot>
+</table>
+
+
+<br />
+
+<partial name="services" />
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model ProductsListViewModel
+
+<partial name="slider" />
+
+<div class="row">
+    <h4 class="deux"><span>@ViewBag.CurrentCategory</span></h4>
+    <br />
+
+    @foreach (var p in Model.Products)
+    {
+        <partial name="ProductSummary" model="p" />
+        @*@if (p.Category == "MAQUILLAGE")
+            {
+                <h2 class="un"><span>RETROUVEZ VOS ESSENTIELS</span></h2>
+                <br />
+
+                <table align="center" width="100%">
+                    <tr>
+                        <td><img src="~/images/3600523873821_1_XXL.png" /></td>
+                        <td><img src="~/images/3600523503285_1_v2_XXL.jpg" /></td>
+                        <td><img src="~/images/3600523899708_1_XXL.png" /></td>
+                        <td><img src="~/images/3054080002178_1_XXL.jpg" /></td>
+                    </tr>
+                </table>
+            }*@
+
+
+        @*<div class="card card-outline-primary m-1 p-1">
+                <div class="bg-faded p-1">
+                    <h4>
+                        @p.Name
+                        <span class="badge badge-pill badge-primary" style="float:right">
+                            <small>@p.Price.ToString("c")</small>
+                        </span>
+                    </h4>
+                    <img src="@Url.Content($"~/images/{p.Image}")" />
+                </div>
+                <div class="card-text p-1">@p.Description</div>
+                <a class="btn btn-primary btn-cart">AJOUTER AU PANIER<span class="fa fa-shopping-cart"></span></a>
+            </div>*@
+
+
+    }
+
+</div>
+<br /><br /><br />
+<div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
+     page-class="btn" page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory" class="btn-group pull-right m-1">
+</div>
+
+
+<br /><br /><br />
+<partial name="ideescadeaux" />
+<br /><br />
+      @*<partial name="sliderproduct" />*@
+@*<partial name="newsmaquillage" />*@
+
+@*<partial name="Lesnouveautes" />*@
+
+
+
+
